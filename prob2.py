@@ -5,42 +5,21 @@ __author__ = 'Jesse Laptop'
 # 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 #
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
-
 limit = 4000000
 
 a = 1
 b = 1
 x = 0
-
-numList = [1]  # Start list with one
-print("A\t\tB\t\tX")
-print()
+answer = 0
 
 while True:
-	x = a + b
-	print(str(a) + "\t\t" + str(b) + "\t\t" + str(x))
-	numList.append(x)
-	a = b
-	b = x
-	if x > limit:
+	x = a + b  # Calculate sequence (1 + 1 = 2) ... (1 + 2 = 3) ... ...
+	if str(x / 2).split(".")[1] == "0":  # Checks if even
+		answer += x  # If even, add to running total
+	a = b  # Shift forward 1 (1 + _ = _)
+	b = x  # Moved answer to slot 1 (1 + 2 = _)
+	if x > limit:  # Stop at limit
 		break
 
-print()
-print(numList)
-
-evenList = []
-for i in numList:
-	if int(str(i / 2).split(".")[1]) == 0:
-		evenList.append(i)
-
-print()
-print("Evens")
-print(evenList)
-
-answer = 0
-for i in evenList:
-	answer = answer + i
-
-print()
 print("Answer")
 print(answer)
