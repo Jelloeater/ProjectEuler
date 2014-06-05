@@ -4,16 +4,22 @@ __author__ = 'Jesse'
 
 limit = 1000
 
-list = []
+numberList = []
 
 for i in range(limit):
-	if i*3 < limit:
-		list.append(i * 3)
-	if i*5 < limit:
-		list.append(i * 5)
+	if i * 3 < limit:
+		numberList.append(i * 3)
+	if i * 5 < limit:
+		numberList.append(i * 5)
 	# print(str(i) +" "+ str(list))
-	if list.count(0) >=1:
-		list.remove(0)
-	list.sort()
+	if numberList.count(0) >= 1:
+		numberList.remove(0)
+	numberList.sort()
 
-print(list)
+# print(list)
+x = 0
+for i in numberList:
+	# print(str(x) + " + " + str(i))
+	x += i
+	# print("= " + str(x))
+print(x)
