@@ -6,21 +6,41 @@ __author__ = 'Jesse Laptop'
 #
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
-limit = 100
+limit = 4000000
 
 a = 1
 b = 1
 x = 0
-numList = []
-numList.append(1)
+
+numList = [1]  # Start list with one
 print("A\t\tB\t\tX")
 print()
-for i in range(limit):
+
+while True:
 	x = a + b
 	print(str(a) + "\t\t" + str(b) + "\t\t" + str(x))
 	numList.append(x)
 	a = b
 	b = x
-	if x > limit: break
+	if x > limit:
+		break
 
+print()
 print(numList)
+
+evenList = []
+for i in numList:
+	if int(str(i / 2).split(".")[1]) == 0:
+		evenList.append(i)
+
+print()
+print("Evens")
+print(evenList)
+
+answer = 0
+for i in evenList:
+	answer = answer + i
+
+print()
+print("Answer")
+print(answer)
