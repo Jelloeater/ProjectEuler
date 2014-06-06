@@ -24,24 +24,30 @@ def prime(x):
 		return True
 
 
-numList = range(10000)
+# numList = range(10000)
+def computeList(size):
+	numList = range(size)
+	pool = ThreadPool(processes=8)  # start 4 worker processes
 
-pool = ThreadPool(processes=8)  # start 4 worker processes
+	results = pool.map(prime, numList)  # prints "[0, 1, 4,..., 81]"
+	pool.close()
+	pool.join()
 
-results = pool.map(prime, numList)  # prints "[0, 1, 4,..., 81]"
-pool.close()
-pool.join()
+	pairs = zip(numList, results)
 
-pairs = zip(numList, results)
+	answerList = []
+	for i in pairs:
+		if i[1]:
+			answerList.append(i[0])
 
-answerList = []
-for i in pairs:
-	if i[1]:
-		answerList.append(i[0])
+	answerList.pop(0)  # Remove 1
 
-answerList.pop(0)  # Remove 1
+	print(answerList)
 
-print(answerList)
+computeList(10)
+print(prime(7))
 
+# Factor 600851475143
+# Determine the largest factor
 
 
