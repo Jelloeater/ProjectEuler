@@ -1,13 +1,12 @@
 __author__ = 'Jesse'
-import json
 
 # A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
 #
 # Find the largest palindrome made from the product of two 3-digit numbers.
 
 
-def writeList():
-	numRange = range(100, 1000)
+def listPals(start = 100, stop = 200):
+	numRange = range(start, stop)
 
 	num1 = []
 	num2 = []
@@ -15,34 +14,28 @@ def writeList():
 	for i in numRange:
 		for i2 in numRange:
 			x = i * i2
-			num1.append(i)
-			num2.append(i2)
-			ans.append(x)
-
-	jsonStr = json.dumps(list(zip(num1, num2, ans)), indent=2)
-	fileHandle2 = open("data4.json", "w")
-	fileHandle2.write(jsonStr)
-	fileHandle2.close()
-
-
-def palindromeTest(x):
-	return True
+			num = str(x)
+			if num[0] == num[-1] and num[1] == num[-2]:
+				if True: # FIXME
+					## TODO Check x against answers in ans
+					num1.append(i)
+					num2.append(i2)
+					ans.append(x)
+	listOutput = list(zip(num1,num2,ans))
 
 
-def searchList():
-	numList = json.load(open('data4.json'))
+	answers = []
+	for i in listOutput:
+		answers.append(i[2])
 
-	palTestList = []
-
-	for i in numList:
-		palTestList.append(palindromeTest(i[2]))
-
-	print(palTestList)
+	answers.sort()
+	print(answers)
 
 
-def main():
-	# writeList()
-	searchList()
+	listOutput = list(set(listOutput))
+
+	# print(listOutput)
+
 
 if __name__ == "__main__":  # Runs Script
-	main()
+	listPals(5,55)
