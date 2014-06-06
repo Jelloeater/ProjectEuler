@@ -48,6 +48,6 @@ computeList(10)
 print(prime(7))
 
 # Factor 600851475143
-# Determine the largest factor
+# Determine the largest factor that is also a prime
 
 
