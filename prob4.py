@@ -4,6 +4,7 @@ __author__ = 'Jesse'
 #
 # Find the largest palindrome made from the product of two 3-digit numbers.
 
+# Answer: 906609
 
 def answerCountList(listIn):
 	answers = []
@@ -53,6 +54,7 @@ def listPals(start=100, stop=200):
 	print(answerCountList(listOutput))
 	print()
 
+	# TODO Write code to clean list of duplicates
 	# # answers = list(set(answers))
 
 
@@ -65,12 +67,10 @@ def listPals(start=100, stop=200):
 	# 					pass
 
 
-	listOutput = list(set(listOutput))
-
 	listOutput.sort(key=lambda listOutputIN: listOutputIN[2])
 
 	print(listOutput)
 
 
 if __name__ == "__main__":  # Runs Script
-	listPals(700, 900)
+	listPals(900, 1000)
