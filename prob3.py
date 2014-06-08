@@ -5,6 +5,26 @@ __author__ = 'Jesse'
 # What is the largest prime factor of the number 600851475143 ?
 
 def computeFactors(numberIn):
+	divisor = 1
+
+	while numberIn > 1:
+
+		numberIn = numberIn / divisor
+		if str(numberIn).split(".")[1] != "0":
+			break
+		print(str(numberIn) + " / " + str(divisor))
+		divisor += 1
+
+		# if str(numberIn).split(".")[1] == "0":
+		# 	divisor = divisor +1
+		# else:
+		# 	numberIn = numberIn * 2
+		# 	divisor += 1
+
+
+
+
+
 	# TODO MATH!!
 	return "ANSWER LIST"
 
@@ -31,7 +51,7 @@ def prime(x):
 		return True
 
 
-
+computeFactors(6552)
 # TODO Figure out factors
 # Factor 600851475143
 # TODO Check if factors are prime
