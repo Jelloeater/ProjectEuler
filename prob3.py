@@ -19,17 +19,8 @@ def computeFactors(numberIn):
 			divisor += 1
 		if answer < 1:
 			break
-		else:
-			print(list(zip(factor, numeral)))
 
-
-
-
-
-
-
-	# TODO MATH!!
-	return "ANSWER LIST"
+	return list(zip(factor, numeral))
 
 
 def prime(x):
@@ -45,7 +36,7 @@ def prime(x):
 			numList.append(numToCheck)
 
 		pairList = list(zip(numList, divList))
-		print(pairList)
+		# print(pairList)
 
 		if divList[0] is True and divList[-1:][0] is True:  # First and last should be divisible by themselves
 			for numToCheck in divList[1:-1]:  # Checks list to make sure all are False
@@ -54,25 +45,18 @@ def prime(x):
 		return True
 
 
-computeFactors(6552)
-# TODO Figure out factors
-# Factor 600851475143
-# TODO Check if factors are prime
-# Determine the largest factor that is also a prime
+def primeFactorList(number):
+	factorList = []
+	primeCheckList = []
+	for i in computeFactors(number):
+		factorList.append(i)
+		primeCheckList.append(prime(i[0]))
 
+	return list(zip(factorList, primeCheckList))
 
-
-
-# Multi-thread example
-
-# from multiprocessing.pool import ThreadPool
-
-# pool = ThreadPool(processes=8)  # start 4 worker processes
-# results = pool.map(prime, numList)  # prints "[0, 1, 4,..., 81]"
-# pool.close()
-# pool.join()
-# pairs = zip(numList, results)
-
-
-
-
+print(600851475143)
+ans = primeFactorList(600851475143)
+print(ans)
+print()
+print('Answer')
+print([x for x in ans if x[1] is True][0][0][1])
