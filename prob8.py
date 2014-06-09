@@ -38,9 +38,9 @@ for numListIndex in range(len(numList)):
 	start = numListIndex
 	stop = numListIndex + 13
 
-	t = 0
+	t = 1
 	for i in numList[start:stop]:
-		t = i + t  # FIXME Do multi not add
+		t = i * t
 	numUsed.append(numList[start:stop])
 	numTotal.append(t)
 
@@ -50,4 +50,8 @@ for numListIndex in range(len(numList)):
 
 ansList = list(zip(numUsed, numTotal))
 ansList.sort(key=lambda val: val[1])
-print(ansList[-1])
+
+print([x for x in ansList if x[1] > 0])
+print("Answer")
+print(ansList[-1][0])
+print(ansList[-1][1])
