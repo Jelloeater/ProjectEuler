@@ -4,7 +4,6 @@ __author__ = 'Jesse'
 # What is the 10001st prime number?
 
 import math
-import timeit
 
 
 def prime(x):
@@ -29,10 +28,4 @@ def generateList(countTo=1000):
 	return primeList
 
 print("Answer")
-ansList = generateList(10001)
-print(ansList[-1])
-
-print(timeit.timeit(generateList,number=3)/3)
-
-# 104729
-# 104743?
+print(generateList(10001)[-1])
