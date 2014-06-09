@@ -28,8 +28,6 @@ x = list(str(7316717653133062491922511967442657474235534919493496983520312774506
 numList = []
 for i in x:
 	numList.append(int(i))
-# print(numList)
-
 
 
 numUsed = []
@@ -42,7 +40,7 @@ for numListIndex in range(len(numList)):
 
 	t = 0
 	for i in numList[start:stop]:
-		t = i + t
+		t = i + t  # FIXME Do multi not add
 	numUsed.append(numList[start:stop])
 	numTotal.append(t)
 
@@ -50,5 +48,6 @@ for numListIndex in range(len(numList)):
 		break
 
 
-ansList = list(zip(numUsed,numTotal))
-print(ansList)
+ansList = list(zip(numUsed, numTotal))
+ansList.sort(key=lambda val: val[1])
+print(ansList[-1])
