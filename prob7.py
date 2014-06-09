@@ -10,8 +10,7 @@ def prime(x):
 	if str(x / 2).split(".")[1] != "0":  # Odd Number
 
 		for numToCheck in range(2, int(math.sqrt(x))+1):  # Tests to square root rounded up
-			if x % numToCheck == 0:  # .035 (exec time)
-			# if str(x / numToCheck).split(".")[1] == "0":  # .229
+			if x % numToCheck == 0:
 				return False
 		return True
 
