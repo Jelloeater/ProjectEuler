@@ -4,15 +4,17 @@ __author__ = 'Jesse'
 # What is the 10001st prime number?
 
 import math
+import timeit
+
 
 def prime(x):
 	if str(x / 2).split(".")[1] != "0":  # Odd Number
 
 		for numToCheck in range(2, int(math.sqrt(x))+1):  # Tests to square root rounded up
-			if str(x / numToCheck).split(".")[1] == "0":
+			if x % numToCheck == 0:  # .035 (exec time)
+			# if str(x / numToCheck).split(".")[1] == "0":  # .229
 				return False
 		return True
-
 
 
 def generateList(countTo=1000):
@@ -21,7 +23,7 @@ def generateList(countTo=1000):
 	while len(primeList) < countTo:
 		if prime(num):
 			primeList.append(num)
-			print(str(len(primeList)) + " - " + str(num))
+			# print(str(len(primeList)) + " - " + str(num))
 		num += 1
 
 	return primeList
@@ -29,6 +31,8 @@ def generateList(countTo=1000):
 print("Answer")
 ansList = generateList(10001)
 print(ansList[-1])
+
+print(timeit.timeit(generateList,number=3)/3)
 
 # 104729
 # 104743?
