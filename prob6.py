@@ -7,35 +7,27 @@ import math
 def is_prime(n):
 	if n % 2 == 0 and n > 2:
 		return False
-	for i in range(3, int(math.sqrt(n)) + 1, 2):
+
+	for i in range(3, int(math.sqrt(n)) + 1):
 		if n % i == 0:
 			return False
 	return True
 
 def prime(x):
 	if str(x / 2).split(".")[1] != "0":  # Odd Number
-		divList = []
-		numList = []
 
-		for numToCheck in range(x):
-			if str(x / (numToCheck + 1)).split(".")[1] != "0":
-				divList.append(False)
-			else:
-				divList.append(True)
-			numList.append(numToCheck)
-
-		if divList[0] is True and divList[-1:][0] is True:  # First and last should be divisible by themselves
-			for numToCheck in divList[1:-1]:  # Checks list to make sure all are False
-				if numToCheck:  # If they are divisible, let us know they are not prime
-					return False
+		for numToCheck in range(3, int(math.sqrt(x))+1):  # Tests to square root rounded up
+			if str(x / numToCheck).split(".")[1] == "0":
+				return False
 		return True
+
 
 
 def generateList(countTo=1000):
 	primeList = []
 	num = 1
 	while len(primeList) < countTo:
-		if is_prime(num):
+		if prime(num):
 			primeList.append(num)
 			print(str(len(primeList)) + " - " + str(num))
 		num += 1
@@ -45,3 +37,4 @@ def generateList(countTo=1000):
 print("Answer")
 ansList = generateList(10001)
 print(ansList[-1])
+
