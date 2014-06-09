@@ -4,19 +4,11 @@ __author__ = 'Jesse'
 # What is the 10001st prime number?
 
 import math
-def is_prime(n):
-	if n % 2 == 0 and n > 2:
-		return False
-
-	for i in range(3, int(math.sqrt(n)) + 1):
-		if n % i == 0:
-			return False
-	return True
 
 def prime(x):
 	if str(x / 2).split(".")[1] != "0":  # Odd Number
 
-		for numToCheck in range(3, int(math.sqrt(x))+1):  # Tests to square root rounded up
+		for numToCheck in range(2, int(math.sqrt(x))+1):  # Tests to square root rounded up
 			if str(x / numToCheck).split(".")[1] == "0":
 				return False
 		return True
@@ -38,3 +30,5 @@ print("Answer")
 ansList = generateList(10001)
 print(ansList[-1])
 
+# 104729
+# 104743?
